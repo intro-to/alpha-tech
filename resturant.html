@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Delicious Eats Restaurant</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Font for styling -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS for Menu Styling -->
+    <style>
+        .menu-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        .menu-table th,
+        .menu-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .menu-table th {
+            background-color: #FF6347;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .category-header {
+            background-color: #FF6347;
+            color: white;
+            font-size: 1.3rem;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .menu-item {
+            padding: 1rem;
+            border-top: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #FF6347;
+        }
+
+        /* Keyframes for Transitioning Multiple Background Images */
+@keyframes slideBackground {
+  0% {
+    background-image: url('back.jpg'); /* Image 1 */
+    background-position: 0% 50%;
+  }
+  33% {
+    background-image: url('collection.jpg'); /* Image 2 */
+    background-position: 50% 50%;
+  }
+  66% {
+    background-image: url('back-ground.jpg'); /* Image 3 */
+    background-position: 100% 50%;
+  }
+  100% {
+    background-image: url('collection 3.jpg'); /* Image 1 again */
+    background-position: 0% 50%;
+  }
+}
+
+/* Apply the animation to the background */
+.animate-slideBackground {
+  animation: slideBackground 60s linear infinite;
+  background-size: cover;
+  background-position: 0% 50%;
+}
+
+    </style>
+
+  </head>
+
+  <body class="bg-gray-100 text-gray-900 font-sans">
+    <!-- Header Section (Navigation Menu) -->
+    <!-- Header Section (Navigation Menu) -->
+<header class="fixed w-full top-0 left-0 z-10 bg-opacity-80 bg-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <!-- Logo -->
+        <div class="font-semibold text-2xl text-[#FF6347]">
+            <a href="#">Delicious Eats</a>
+        </div>
+        
+        <!-- Navigation Menu -->
+        <nav class="hidden md:flex space-x-6">
+            <ul class="flex space-x-6">
+                <li><a href="#home" class="hover:text-gray-600">Home</a></li>
+                <li><a href="#menu" class="hover:text-gray-600">Menu</a></li>
+                <li><a href="#best-dish" class="hover:text-gray-600">Favourites</a></li>
+                <li><a href="#about" class="hover:text-gray-600">About</a></li>
+                <li><a href="#contact" class="hover:text-gray-600">Contact Us</a></li>
+                <li><a href="#locations" class="hover:text-gray-600">Locations</a></li>
+            </ul>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-[#FF6347] focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+        <ul class="flex flex-col items-center py-4 space-y-4">
+            <li><a href="#home" class="text-[#FF6347] hover:text-gray-600">Home</a></li>
+            <li><a href="#menu" class="text-[#FF6347] hover:text-gray-600">Menu</a></li>
+            <li><a href="#best-dish" class="text-[#FF6347] hover:text-gray-600">Favourites</a></li>
+            <li><a href="#about" class="text-[#FF6347] hover:text-gray-600">About</a></li>
+            <li><a href="#contact" class="text-[#FF6347] hover:text-gray-600">Contact Us</a></li>
+            <li><a href="#locations" class="text-[#FF6347] hover:text-gray-600">Locations</a></li>
+        </ul>
+    </div>
+</header>
+
+    <section
+  id="home"
+  class="relative h-screen bg-cover bg-center text-center text-white"
+>
+  <!-- Dark overlay for contrast -->
+  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+  <!-- Content inside the hero section -->
+  <div class="relative z-10 h-full flex flex-col justify-center items-center space-y-4">
+    <h1 class="text-4xl md:text-6xl font-bold">Delicious Eats</h1>
+    <p class="text-xl md:text-2xl font-light">
+      Welcome to Delicious Eats, where we serve delicious cuisine in a cozy
+      atmosphere.
+    </p>
+  </div>
+
+  <!-- Animated Background with Multiple Images -->
+  <div class="absolute inset-0 bg-cover bg-fixed bg-no-repeat animate-slideBackground"></div>
+</section>
+
+     <!-- Menu Section -->
+    <section id="menu" class="py-16 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-[#FF6347] text-center mb-8">Our Menu</h2>
+
+            <!-- Appetizers Section -->
+            <div class="category-header">Appetizers</div>
+            <table class="menu-table">
+                <thead>
+                    <tr>
+                        <th>Dish</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="menu-item">
+                        <td>Bruschetta</td>
+                        <td>Toasted bread with tomato, basil, and balsamic drizzle.</td>
+                        <td class="price">$8.99</td>
+                    </tr>
+                    <tr class="menu-item">
+                        <td>Garlic Bread</td>
+                        <td>Freshly baked bread topped with garlic butter and herbs.</td>
+                        <td class="price">$4.99</td>
+                    </tr>
+                    <tr class="menu-item">
+                        <td>Stuffed Mushrooms</td>
+                        <td>Mushrooms filled with a savory mixture of cheese and herbs.</td>
+                        <td class="price">$9.99</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Main Dishes Section -->
+            <div class="category-header mt-12">Main Dishes</div>
+            <table class="menu-table">
+                <thead>
+                    <tr>
+                        <th>Dish</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="menu-item">
+                        <td>Spaghetti Carbonara</td>
+                        <td>Classic Italian pasta with eggs, cheese, pancetta, and pepper.</td>
+                        <td class="price">$14.99</td>
+                    </tr>
+                    <tr class="menu-item">
+                        <td>Grilled Chicken</td>
+                        <td>Perfectly grilled chicken breast served with mashed potatoes.</td>
+                        <td class="price">$18.99</td>
+                    </tr>
+                    <tr class="menu-item">
+                        <td>Steak Frites</td>
+                        <td>Juicy steak with crispy fries and a side of béarnaise sauce.</td>
+                        <td class="price">$24.99</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Desserts Section -->
+            <div class="category-header mt-12">Desserts</div>
+            <table class="menu-table">
+                <thead>
+                    <tr>
+                        <th>Dish</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="menu-item">
+                        <td>Tiramisu</td>
+                        <td>Classic Italian dessert made with coffee-soaked ladyfingers and mascarpone.</td>
+                        <td class="price">$7.99</td>
+                    </tr>
+                    <tr class="menu-item">
+                        <td>Chocolate Cake</td>
+                        <td>Rich and moist chocolate cake topped with chocolate ganache.</td>
+                        <td class="price">$6.99</td>
+                    </tr>
+                    <tr class="menu-item">
+                        <td>Cheesecake</td>
+                        <td>Creamy cheesecake topped with seasonal fruits and syrup.</td>
+                        <td class="price">$8.99</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Drinks Section -->
+            <div class="category-header mt-12">Drinks</div>
+            <table class="menu-table">
+                <thead>
+                    <tr>
+                        <th>Dish</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="menu-item">
+                        <td>Red Wine</td>
+                        <td>Full-bodied red wine with rich flavors of berries and oak.</td>
+                        <td class="price">$12.99</td>
+                    </tr>
+                    <tr class="menu-item">
+                        <td>White Wine</td>
+                        <td>Crisp and refreshing white wine with citrus and floral notes.</td>
+                        <td class="price">$10.99</td>
+                    </tr>
+                    <tr class="menu-item">
+                        <td>Soda</td>
+                        <td>Your choice of cola, lemon-lime, or root beer.</td>
+                        <td class="price">$2.99</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <main>
+      <!-- Menu Section -->
+      <section id="best-dish" class="py-16 px-6 bg-white">
+        <div class="max-w-7xl mx-auto text-center">
+          <h2 class="text-3xl font-bold text-[#FF6347] mb-8">Our Favourites</h2>
+          <div class="grid md:grid-cols-3 gap-8">
+          <!-- Dish 1 -->
+<div class="card shadow-xl bg-gray-50 p-6 rounded-lg">
+    <img
+      src="super.jpg"
+      alt="Dish 1"
+      class="w-full h-48 object-cover rounded-lg mb-4"
+    />
+    <h3 class="font-semibold text-xl text-[#FF6347]">
+      Spaghetti Carbonara
+    </h3>
+    <p class="text-gray-600 mt-2">
+      A classic Italian dish made with eggs, cheese, pancetta, and pepper.
+    </p>
+    <p class="font-bold mt-4">$14.99</p>
+  </div>
+  
+  <!-- Dish 2 -->
+  <div class="card shadow-xl bg-gray-50 p-6 rounded-lg">
+    <img
+      src="grilled.jpg"
+      alt="Dish 2"
+      class="w-full h-48 object-cover rounded-lg mb-4"
+    />
+    <h3 class="font-semibold text-xl text-[#FF6347]">
+      Grilled Salmon
+    </h3>
+    <p class="text-gray-600 mt-2">
+      A perfectly grilled salmon fillet with lemon butter sauce.
+    </p>
+    <p class="font-bold mt-4">$19.99</p>
+  </div>
+  
+  <!-- Dish 3 -->
+  <div class="card shadow-xl bg-gray-50 p-6 rounded-lg">
+    <img
+      src="mangalita.jpg"
+      alt="Dish 3"
+      class="w-full h-48 object-cover rounded-lg mb-4"
+    />
+    <h3 class="font-semibold text-xl text-[#FF6347]">
+      Margherita Pizza
+    </h3>
+    <p class="text-gray-600 mt-2">
+      A classic pizza topped with fresh mozzarella, tomatoes, and basil.
+    </p>
+    <p class="font-bold mt-4">$12.99</p>
+  </div>
+  
+  <!-- Dish 4 -->
+  <div class="card shadow-xl bg-gray-50 p-6 rounded-lg">
+    <img
+      src="ceaser.jpg"
+      alt="Dish 4"
+      class="w-full h-48 object-cover rounded-lg mb-4"
+    />
+    <h3 class="font-semibold text-xl text-[#FF6347]">
+      Caesar Salad
+    </h3>
+    <p class="text-gray-600 mt-2">
+      Crisp romaine lettuce tossed in Caesar dressing with croutons and parmesan.
+    </p>
+    <p class="font-bold mt-4">$9.99</p>
+  </div>
+  
+  <!-- Dish 5 -->
+  <div class="card shadow-xl bg-gray-50 p-6 rounded-lg">
+    <img
+      src="download (2).jpg"
+      alt="Dish 5"
+      class="w-full h-48 object-cover rounded-lg mb-4"
+    />
+    <h3 class="font-semibold text-xl text-[#FF6347]">
+      Chicken Alfredo
+    </h3>
+    <p class="text-gray-600 mt-2">
+      Creamy Alfredo sauce served with tender chicken over fettuccine pasta.
+    </p>
+    <p class="font-bold mt-4">$16.99</p>
+  </div>
+  
+  <!-- Dish 6 -->
+  <div class="card shadow-xl bg-gray-50 p-6 rounded-lg">
+    <img
+      src="beaf.jpg"
+      alt="Dish 6"
+      class="w-full h-48 object-cover rounded-lg mb-4"
+    />
+    <h3 class="font-semibold text-xl text-[#FF6347]">
+      Beef Burger
+    </h3>
+    <p class="text-gray-600 mt-2">
+      A juicy beef patty served with lettuce, tomato, and our special sauce.
+    </p>
+    <p class="font-bold mt-4">$11.99</p>
+  </div>
+  
+      </section>
+
+      <!-- About Us Section -->
+      <section id="about" class="py-16 px-6 bg-[#FF6347] text-white">
+        <div class="max-w-7xl mx-auto text-center">
+          <h2 class="text-3xl font-bold mb-8">About Us</h2>
+          <p class="text-lg">
+            At Delicious Eats, we pride ourselves on delivering the finest
+            dining experience. Our chefs use only the freshest ingredients to
+            prepare mouthwatering dishes with a twist. Whether you're here for a
+            casual meal with friends or a special celebration, we have something
+            for everyone.
+          </p>
+          More so we're commited to great food, great coffee, great service, an experience that will make your time with us fabulous. All visuals are serving suggestions only.
+Prices are affordable to everyone.
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-16 px-6 bg-white">
+        <div class="max-w-7xl mx-auto text-center">
+          <h2 class="text-3xl font-bold text-[#FF6347] mb-8">Contact Us</h2>
+          <form action="#" method="POST" class="max-w-lg mx-auto space-y-6">
+            <!-- Name Input -->
+            <input
+              type="text"
+              placeholder="Your Name"
+              class="input input-bordered w-full"
+              required
+            />
+            
+            <!-- Email Input -->
+            <input
+              type="email"
+              placeholder="Your Email"
+              class="input input-bordered w-full"
+              required
+            />
+            
+            <!-- Message Textarea -->
+            <textarea
+              placeholder="Your Message"
+              class="textarea textarea-bordered w-full"
+              rows="4"
+              required
+            ></textarea>
+            
+            <!-- Send Message Button -->
+            <button type="submit" class="btn btn-primary w-full">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </section>
+      
+      <!-- Locations Section -->
+      <section id="locations" class="py-16 px-6 bg-gray-100">
+        <div class="max-w-7xl mx-auto text-center">
+          <h2 class="text-3xl font-bold text-[#FF6347] mb-8">Our Locations</h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            <!-- Location 1 -->
+            <div class="card shadow-xl bg-white p-6 rounded-lg">
+              <h3 class="text-xl text-[#FF6347] font-semibold">
+                Main Street, Downtown
+              </h3>
+              <p class="text-gray-600 mt-2">123 Main Street, Kampala City, High State</p>
+            </div>
+            <!-- Location 2 -->
+            <div class="card shadow-xl bg-white p-6 rounded-lg">
+              <h3 class="text-xl text-[#FF6347] font-semibold">
+                Beachside Mbarara
+              </h3>
+              <p class="text-gray-600 mt-2">456 High Street, Mbarara City, Middle State</p>
+            </div>
+            <p>We are delighted to welcome you to all our locations and serve you ouur best of your health.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-[#FF6347] text-white py-4">
+      <div class="max-w-7xl mx-auto text-center">
+        <p>&copy; 2025 Delicious Eats. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

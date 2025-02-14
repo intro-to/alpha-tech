@@ -1,0 +1,27 @@
+/* Keyframes for Transitioning Multiple Background Images */
+@keyframes slideBackground {
+    0% {
+      background-image: url('assets/images/image1.jpg'); /* Image 1 */
+      background-position: 0% 50%;
+    }
+    33% {
+      background-image: url('assets/images/image2.jpg'); /* Image 2 */
+      background-position: 50% 50%;
+    }
+    66% {
+      background-image: url('assets/images/image3.jpg'); /* Image 3 */
+      background-position: 100% 50%;
+    }
+    100% {
+      background-image: url('assets/images/image1.jpg'); /* Image 1 again */
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Apply the animation to the background */
+  .animate-slideBackground {
+    animation: slideBackground 30s linear infinite;
+    background-size: cover;
+    background-position: 0% 50%;
+  }
+  
